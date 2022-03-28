@@ -8,8 +8,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import {red100} from 'react-native-paper/lib/typescript/styles/colors';
-const Setting = () => {
+const Setting = ({navigation}) => {
   const [text, onChangeText] = React.useState('');
 
   return (
@@ -21,8 +20,8 @@ const Setting = () => {
         placeholder="Enter text"
         keyboardType="numeric"
       />
-      <TouchableOpacity style={styles.btn_set}>
-        <Text style={styles.title_btn_set}>Send data</Text>
+      <TouchableOpacity style={styles.btn_set} onPress={() => navigation.navigate('List')}>
+        <Text style={styles.title_btn_set}>Connect</Text>
       </TouchableOpacity>
     </View>
   );
