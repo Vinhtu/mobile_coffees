@@ -8,8 +8,43 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
+const ads = require('ads-client')
+// import ads from 'ads-client'
 const Setting = ({navigation}) => {
   const [text, onChangeText] = React.useState('');
+
+
+  const btn_setting_ads = () => {
+    // const config = JSON.parse(text)
+    cosole.log(ads, 'ads');
+    // const client = new ads.Client(config)
+    // client.connect()
+    //   .then(res => {   
+    //     console.log(`Connected to the ${res.targetAmsNetId}`)
+    //     console.log(`Router assigned us AmsNetId ${res.localAmsNetId} and port ${res.localAdsPort}`)
+    
+    //     return client.disconnect()
+    //   })
+    //   .then(() => {
+    //     console.log('Disconnected')
+    //   })
+    //   .catch(err => {
+    //     console.log('Something failed:', err)
+    //   })
+
+
+    //  localAmsNetId: '192.168.1.10.1.1',  //Can be anything but needs to be in PLC StaticRoutes.xml file
+    // localAdsPort: 32750,                //Can be anything that is not used
+    // targetAmsNetId: '192.168.1.120.1.1',
+    // targetAdsPort: 851,
+    // routerAddress: '192.168.1.120',     //PLC ip address
+    // routerTcpPort: 48898   
+
+    // {"localAmsNetId":"192.168.1.10.1.1","localAdsPort":32750,"targetAmsNetId":"192.168.1.120.1.1","targetAdsPort":851,"routerAddress":"192.168.1.120","routerTcpPort":48898}
+
+    // navigation.navigate('List');
+  }
+
 
   return (
     <View style={styles.container_set}>
@@ -20,7 +55,7 @@ const Setting = ({navigation}) => {
         placeholder="Enter text"
         keyboardType="numeric"
       />
-      <TouchableOpacity style={styles.btn_set} onPress={() => navigation.navigate('List')}>
+      <TouchableOpacity style={styles.btn_set} onPress={() => btn_setting_ads()}>
         <Text style={styles.title_btn_set}>Connect</Text>
       </TouchableOpacity>
     </View>
