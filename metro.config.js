@@ -14,4 +14,12 @@ module.exports = {
       },
     }),
   },
+  resolver: {
+    extraNodeModules: {
+      ...require('node-libs-react-native'),
+      net: require.resolve('node-libs-react-native/mock/net'),
+      console: require.resolve('node-libs-react-native/mock/console'),
+      buffer: require.resolve('node-libs-react-native/mock/buffer'),
+    },
+  },
 };

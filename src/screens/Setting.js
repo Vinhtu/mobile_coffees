@@ -1,13 +1,14 @@
+import {
+  Button,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+
 import React from 'react';
 
-import {
-  Text,
-  View,
-  Button,
-  TextInput,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
 const ads = require('ads-client')
 // import ads from 'ads-client'
 const Setting = ({navigation}) => {
@@ -16,7 +17,7 @@ const Setting = ({navigation}) => {
 
   const btn_setting_ads = () => {
     // const config = JSON.parse(text)
-    cosole.log(ads, 'ads');
+    console.log(ads, 'ads');
     // const client = new ads.Client(config)
     // client.connect()
     //   .then(res => {   
