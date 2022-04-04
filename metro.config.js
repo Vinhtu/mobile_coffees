@@ -17,7 +17,7 @@ module.exports = {
   resolver: {
     extraNodeModules: {
       ...require('node-libs-react-native'),
-      net: require.resolve('node-libs-react-native/mock/net'),
+      net: require.resolve("react-native-tcp-socket"),
       console: require.resolve('node-libs-react-native/mock/console'),
       buffer: require.resolve('node-libs-react-native/mock/buffer'),
     },
