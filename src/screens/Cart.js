@@ -25,6 +25,10 @@ const Cart = ({navigation}) => {
     let items = await AsyncStorage.getItem('params');
     items = JSON.parse(items);
     setProduct(items);
+    
+    if(items[0]){
+      //xu lý push param name : gvl.item[0].name;
+    }
     return items;
   };
 
