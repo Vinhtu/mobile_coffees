@@ -2,6 +2,10 @@ import React from 'react';
 import {Text, View, Image, Alert, TouchableOpacity, Button ,ScrollView} from 'react-native';
 import bg from '../assets/logo_remove_bg.png'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
+
+
+
 
 const products = [
   {
@@ -39,9 +43,20 @@ const products = [
   },
 ];
 const TabLists = ({navigation}) => {
+
   const addCart = async value => {
+    axios.post(`http://192.168.1.16:3001/orders`,{value : value.id})
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+
     let itemArray =  await AsyncStorage.getItem('params');
     itemArray = JSON.parse(itemArray);
+
     if(itemArray != null){
       let arr = itemArray;
       arr.push(value);
@@ -129,55 +144,3 @@ const TabLists = ({navigation}) => {
 };
 
 export default TabLists;
-
-const demo = () => {
-  return (
-    <View
-      style={{
-        paddingHorizontal: 16,
-        paddingVertical: 24,
-        backgroundColor: 'white',
-        height: '100%',
-      }}>
-      <Text
-        style={{
-          fontSize: 28,
-          fontWeight: 'bold',
-          color: '#D35400',
-          marginBottom: 24,
-        }}>
-        Mobile Coffee
-      </Text>
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          width: '100%',
-          justifyContent: 'space-between',
-          marginVertical: 16,
-        }}>
-        {products.map((item, idx) => {
-          return (
-            <TouchableOpacity
-              style={{width: '48%', marginBottom: 16}}
-              onPress={() => bookDrink(`${item.name}`)}>
-              <View style={{height: 150, marginBottom: 16}}>
-                <Image
-                  style={{width: '100%', height: '100%', borderRadius: 10}}
-                  source={{
-                    uri: `${item.uri}`,
-                  }}
-                />
-              </View>
-              <Text style={{fontSize: 18, fontWeight: 'bold', color: 'black'}}>
-                {item.name}
-              </Text>
-              <Text style={{fontSize: 14, color: '#D35400'}}>{item.price}</Text>
-            </TouchableOpacity>
-          );
-        })}
-      </View>
-    </View>
-  );
-};

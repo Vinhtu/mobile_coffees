@@ -8,15 +8,14 @@ import {
 } from 'react-native';
 
 import React from 'react';
-import axios from 'axios';
 
 const Setting = ({navigation}) => {
   const [text, onChangeText] = React.useState('');
 
 
   const btn_setting_ads = () => {
-    const params = 1;
-    axios.post(`http://192/168/1/1/order/${params}`)
+    const params = 2;
+    axios.post(`http://192.168.1.16:3001/orders`,{value : params})
     .then(function (response) {
       console.log(response);
     })
