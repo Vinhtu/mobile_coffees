@@ -20,6 +20,9 @@ module.exports = {
       net: require.resolve("react-native-tcp-socket"),
       console: require.resolve('node-libs-react-native/mock/console'),
       buffer: require.resolve('node-libs-react-native/mock/buffer'),
+      buffer: require.resolve('node-libs-react-native/mock/buffer'),
+
+
     },
   },
 };
