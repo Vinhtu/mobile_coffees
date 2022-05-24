@@ -70,29 +70,25 @@ const Cart = ({navigation}) => {
   //   }, 1000);
   // };
 
-  if(product == null ){
-    return(
-      <View style={{width: "100%", padding: 24}}>
-      <Text style={{fontSize: 20}}>
-        Trống
-      </Text>
-    </View>
-    )
+  if (product == null) {
+    return (
+      <View style={{width: '100%', padding: 24}}>
+        <Text style={{fontSize: 20}}>Trống</Text>
+      </View>
+    );
   }
   return (
     // <DrawerContentScrollView >
     <View style={{position: 'relative'}}>
-        <ScrollView >
+     
+      <ScrollView>
         <View
           style={{
             paddingVertical: 170,
             paddingHorizontal: 16,
             zIndex: 0,
             backgroundColor: 'white',
-           
-           
           }}>
-           
           {product &&
             product.map((item, idx) => {
               if (idx > 0)
@@ -117,7 +113,7 @@ const Cart = ({navigation}) => {
                           uri: `${item.uri}`,
                         }}
                       />
-                      
+
                       <View>
                         <Text
                           style={{
@@ -142,12 +138,12 @@ const Cart = ({navigation}) => {
                       style={{
                         display: 'flex',
                         flexDirection: 'row',
-                        alignItems: 'flex-end',
-                        flexWrap: 'wrap'
+                        alignItems: 'center',
+                      
                       }}>
                       <View
                         style={{
-                          alignSelf: 'center',
+                         
                           marginRight: 16,
                         }}>
                         <Text
@@ -156,11 +152,11 @@ const Cart = ({navigation}) => {
                             fontStyle: 'italic',
                             color: 'black',
                           }}>
-                          Hàng chờ : {idx}
+                          Stt: {idx}
                         </Text>
                       </View>
                       <TouchableOpacity
-                        style={{alignSelf: 'center'}}
+                       
                         onPress={() => deleteProduct(idx)}>
                         <Text
                           style={{
@@ -175,9 +171,9 @@ const Cart = ({navigation}) => {
                   </View>
                 );
             })}
-        
         </View>
-        </ScrollView>
+      </ScrollView>
+     
       <View
         style={{
           position: 'absolute',
@@ -257,7 +253,7 @@ const Cart = ({navigation}) => {
           })}
       </View>
     </View>
-   
+
     // </DrawerContentScrollView>
   );
 };
